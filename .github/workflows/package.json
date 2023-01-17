@@ -1,5 +1,5 @@
 {
-  "name": "@hexlet/code",
+  "name": "i",
   "version": "1.0.0",
   "description": "project",
   "main": "index.js",
@@ -19,6 +19,8 @@
   "type": "module",
   "bin": {
     "brain-games": "bin/brain-games.js"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
   }
-  
 }
