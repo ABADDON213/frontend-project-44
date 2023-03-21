@@ -1,20 +1,30 @@
-import readlineSync from "readline-sync";
+import readlineSync from 'readline-sync';
 
-export const answerForm = (variable, dataType) => {
-    const result = readlineSync.question(`Question: ${variable} \nYour answer: `);
-    if (dataType === 'string') {
-        return result 
-    }
-    return parseInt(result, 10);
-};
+const basisOfGames = (noteToGame, task) => {
+  console.log('Welcome to the Brain Games!');
 
-export const checkAnswer = (userAnswer, correctAnswer, userName, i) => {
-    if (userAnswer === correctAnswer) {
-        console.log('Correct!');
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
+
+  console.log(noteToGame);
+
+  for (let i = 0; i < 3; i += 1) {
+    const pairOfQuestionAndResult = task();
+
+    console.log(`Question: ${pairOfQuestionAndResult[0]}`);
+    const answerUser = readlineSync.question('Your answer: ');
+
+    const rightAnswer = pairOfQuestionAndResult[1];
+
+    if (answerUser === rightAnswer) {
+      console.log('Correct!');
     } else {
-        console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, ${userName}!`);
-        return false;
+      console.log(`"${answerUser}" is wrong answer ;(. Correct answer was "${rightAnswer}". \nLet's try again, ${userName}!`);
+      return;
     }
-    if (i === 2) console.log(`Congratulations, ${userName}!`);
-    return true;
+  }
+
+  console.log(`Congratulations, ${userName}!`);
 };
+
+export default basisOfGames;
