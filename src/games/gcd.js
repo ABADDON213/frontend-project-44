@@ -3,10 +3,8 @@ import basisOfGames from '../index.js';
 import getRandomInt from '../getRandomInt.js';
 
 const gcd = () => {
-  // Задание игры
   const noteToGcd = 'Find the greatest common divisor of given numbers.';
 
-  // Вводные данные на игру
   const taskGcd = () => {
     const number1 = getRandomInt(100);
     const number2 = getRandomInt(100);
